@@ -1,0 +1,46 @@
+.section-post-date {
+  font-size: 13px;
+  font-family: "Tai Heritage Pro", serif;
+  text-align: left;
+  margin-top: 8px;
+}
+.section-post-img {
+  width: 100%;
+  margin-top: 16px;
+}
+.section-post-img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.section-post-txt {
+  font-size: 10px;
+  font-family: "Noto Serif JP", serif;
+  margin-top: 8px;
+  text-align: left;
+}
+.section-post-button {
+  margin-top: 16px;
+}
+
+@media screen and (min-width: 520px) {
+  .section-post-inner {
+    width: 52%;
+  }
+  .section-post-date {
+    font-size: 20px;
+  }
+  .section-post-txt {
+    font-size: 15px;
+    line-height: 1.75em;
+    letter-spacing: 0.07em;
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 24px;
+  }
+  .section-post-button {
+    width: 75%;
+  }
+}
+/*# sourceMappingURL=post.css.map */

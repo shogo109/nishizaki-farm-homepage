@@ -1,0 +1,251 @@
+$txt-family: 'Noto Serif JP', serif;
+$eg-family: 'Tai Heritage Pro', serif;
+$font-color: #41590C;
+$ttl: 4.8vw;
+$pc-ttl: 3.8vw;
+$txt: 10px;
+$pc-txt: 15px;
+
+.section-about {
+    &-inner {
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+}
+
+// 西崎農園のこと
+.section-prologue-about {
+    &-img {
+        width: 100%;
+        height: 375px;
+        position: relative;
+        & img {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+    }
+    &-ttl {
+            position: absolute;
+            font-size: 24px;
+            color: #fff;
+            font-family: $txt-family;
+            top: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+        }
+    &-txt {
+        margin-top: 12px;
+    }
+}
+
+@media screen and (min-width: 520px) {
+    .section-about-inner {
+        width: 45%;
+    }
+    .section-prologue-about {
+        &-flex {
+            display: flex;
+            justify-content: space-between;
+            width: 75%;
+            margin: 0 auto;
+        }
+        &-img {
+            width: 45%;
+            & img {
+                left: 0;
+            }
+        }
+    }
+}
+
+// 西崎農園の歴史
+.section-history {
+    &-img {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        & img {
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+    &-ttl {
+        position: absolute;
+        font-size: 20px;
+        font-family: $txt-family;
+        color: #fff;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    // &-inner {
+    //     width: 75%;
+    // }
+    &-box {
+        font-size: 10px;
+        width: 90%;
+        margin: 0 auto;
+        &-content-flex {
+            display: flex;
+            justify-content: flex-start;
+        }
+        &-date {
+            text-align: left;
+            font-family: $txt-family;
+            // & span:first-child {
+            //     margin-left: 40px;
+            // }
+            // &-first {
+            //     display: block;
+            //     padding-left: 85px;
+            // }
+            // &-second {
+            //     display: block;
+            //     padding-left: 76px;
+            // }
+        }
+        &-txt {
+            margin-left: 40px;
+            font-family: $txt-family;
+            text-align: left;
+        }
+        &-flex {
+            display: flex;
+            margin-top: 16px;
+            & img {
+                width: 64px;
+                height: 48px;
+                margin-left: 80px;
+                border-radius: 10px;
+            }
+        }
+        &-content {
+            height: 35px;
+            margin-left: 24px;
+            line-height: 5em;
+            border-bottom: 1px solid $font-color;
+            font-family: $txt-family;
+        }
+        & + & {
+            margin-top: 32px;
+        }
+        &-pione {
+            margin-top: 0px
+        }
+    }
+}
+
+@media screen and (min-width: 520px) { 
+    .section-history {
+        &-flex {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            width: 75%;
+            margin: 0 auto;
+        }
+        &-img {
+            width: 45%;
+            height: 100%;
+        }
+    }
+}
+
+
+.timeline-li {
+    position: relative;
+    list-style: none;
+    padding-bottom: 32px;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        background-color: #666;
+        border-radius: 5px;
+    }
+}
+
+.border-line {
+    position: absolute;
+    left: 0.2em;
+    top: 0;
+    width: 2px;
+    height: 0;
+    background-color: #ccc;
+}
+
+
+
+/* 背景暗くする表示 */
+body.is-active {
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  
+  /* 表示する写真 */
+.section-modal-window {
+    display: none;
+    position: fixed;
+    width: 95%;
+    border: 1px solid $font-color;
+    background: #fff;
+    z-index: 20;
+    padding: 20px;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .modal-window {
+    &-ttl {
+        font-size: $ttl;
+        font-family: $txt-family;
+        text-align: center;
+    }
+    &-feature {
+        font-size: 16px;
+        font-family: $txt-family;
+        margin-top: 16px;
+    }
+    &-txt {
+        font-size: 14px;
+        font-family: $txt-family;
+        margin-top: 8px;
+        line-height: 1.75em;
+        letter-spacing: 0.07em;
+    }
+    &-close {
+        font-size: 14px;
+        font-weight: bold;
+        font-family: $txt-family;
+        border: 1px solid $font-color;
+        width: 30%;
+        margin-top: 16px;
+        text-align: center;
+        margin: 16px auto 0;
+    }
+  }
+
+  @media screen and (min-width: 520px) { 
+    .section-modal-window {
+        width: auto;
+        padding: 20px 40px;
+    } 
+    .modal-window {
+        &-ttl {
+            font-size: $pc-ttl;
+        }
+        &-feature {
+            font-size: 25px;
+        }
+    }
+  } 

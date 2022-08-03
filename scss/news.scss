@@ -1,0 +1,120 @@
+$txt-family: 'Noto Serif JP', serif;
+$eg-family: 'Tai Heritage Pro', serif;
+$font-color: #41590C;
+$main-backcolor: #77A612;
+$accent-color: #B0D91E;
+$ttl: 4.8vw;
+$pc-ttl: 3.8vw;
+$txt: 10px;
+$pc-txt: 15px;
+
+.section-news {
+    &-box {
+        display: flex;
+        justify-content: space-between;
+        &:first-of-type {
+            margin-top: 36px;
+        }
+        & + & {
+            margin-top: 16px;
+        }
+        &-img {
+            width: 34%;
+            height: 80px;
+            & img {
+                width: 108px;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+        }
+        &-content {
+            width: 55%;
+            font-size: 10px;
+            text-align: left;
+            &-ttl {
+                font-family: $txt-family;
+            }
+            &-date {
+                font-family: $eg-family;
+            }
+        }
+    }
+}
+
+.navigation {
+    margin-top: 16px;
+    font-size: $txt;
+    font-family: $eg-family;
+    padding: 0 8px;
+}
+.page-numbers {
+    color: #fff;
+    background-color: $main-backcolor;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 25px;
+    &:first-child {
+        margin-right: 8px;
+    }
+    & + & {
+        margin-right: 8px;
+    }
+    &:last-child {
+        margin-top: 16px;
+    }
+}
+.next {
+    content: '次';
+}
+.current {
+    background-color: $accent-color;
+}
+
+
+@media screen and (min-width: 520px) {
+    .section-news {
+        &-inner {
+            width: 75%;
+        }
+        &-flex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        &-box {
+            flex-direction: column;
+            width: 28%;
+            & + & {
+                margin-top: 36px;
+            }
+            &-img {
+                width: 100%;
+                height: 100%;
+                & img {
+                    width: 100%;
+                    height: 250px;
+                    border-radius: 15px;
+                }
+            }
+            &-content {
+                margin-top: 20px;
+                font-size: $pc-txt;
+                &-date {
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+    .navigation {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: $pc-txt;
+    }
+}

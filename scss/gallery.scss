@@ -1,0 +1,90 @@
+$txt-family: 'Noto Serif JP', serif;
+$eg-family: 'Tai Heritage Pro', serif;
+$font-color: #41590C;
+$ttl: 4.8vw;
+$pc-ttl: 3.8vw;
+$txt: 10px;
+$pc-txt: 15px;
+
+.section-gallery {
+    &-imgs {
+        &-box {
+            width: 100%;
+            
+            & img {
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 6px 6px 4px #E5EAD9;
+                object-fit: cover;
+            }
+            & + & {
+                margin-top: 16px;
+            }
+            &:first-child {
+                margin-top: 24px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 520px) {
+    .section-gallery {
+        &-inner {
+            width: 52%;
+        }
+    }
+
+}
+
+.section-category {
+    &-flex {
+        display: flex;
+        justify-content: space-between;
+        font-size: $txt;
+        font-family: $txt-family;
+        border-bottom: 1px solid $font-color;
+    }
+    &-item {
+        font-family: $txt-family;
+        text-align: left;
+        margin-top: 16px;
+        height: 25px;
+    }
+    &-count {
+        font-family: $eg-family;
+        margin-top: 16px;
+        margin-right: 20px;
+        border: 1px solid $font-color;
+        border-radius: 20px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+@media screen and (min-width: 520px) {
+    .section-category {
+        &-flex {
+            font-size: $pc-txt;
+        }
+        &-inner {
+            width: 52%;
+        }
+        &-item {
+            font-size: $pc-txt;
+            height: 30px;
+        }
+        &-count {
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+        }
+    }
+}
+
+
+
+// ページネーション
+.navigation {
+    display: block;
+}
