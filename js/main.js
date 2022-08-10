@@ -1,34 +1,29 @@
 "use strict";
 
 jQuery(function ($) {
-    // hamburger
+    /* =================== */
+    /*     hamburger       */
+    /* =================== */
     $("#hamburger").click(function () {
         $(this).toggleClass("is-active");
         $("#header-nav").fadeToggle();
         $("body").toggleClass("is-active");
     });
 
-    // mvのスライドショー
-    // $('.js-mv-slide').slick({
-    //     fade: true,
-    //     arrows: false,
-    //     // dots: true,
-    //     autoplay: true,
-    //     autoplaySpeed: 4000,
-    //     speed: 1000,
-    // });
 
     function handleProgressbar() {
         const dotActiveItem = document.querySelector('.slider-dot .slick-active button');
-        const progressCircleBar = new ProgressBar.Circle(dotActiveItem, {
-            strokeWidth: 6,
-            duration: 3000,
-            color: '#fff',
-            trailColor: '#000',
-            trailWidth: 2,
-            svgStyle: null
-        });
-        progressCircleBar.animate(1);
+        if (dotActiveItem != null) {
+            const progressCircleBar = new ProgressBar.Circle(dotActiveItem, {
+                strokeWidth: 6,
+                duration: 3000,
+                color: '#fff',
+                trailColor: '#000',
+                trailWidth: 2,
+                svgStyle: null
+            });
+            progressCircleBar.animate(1);
+        }
     }
     
     $('.js-mv-slide').slick({
@@ -55,8 +50,9 @@ jQuery(function ($) {
         handleProgressbar();
     });
 
-
-    // こだわりの商品紹介 スライドショー
+    /* ============================ */
+    /* こだわりの商品紹介 スライドショー */
+    /* ============================ */
     var $status_current = $('.js-slide-status-current');
     var $status_total = $('.js-slide-status-total');
 
@@ -80,7 +76,10 @@ jQuery(function ($) {
         $status_current.text(currentIndex + 1);
     });
 
-    // ローディングアニメーション
+
+    /* ======================== */
+    /*  ローディングアニメーション  */
+    /* ======================== */
     function end_loader() {
         $('.loader').fadeOut(800);
         $("body").removeClass("is-active");
@@ -93,17 +92,6 @@ jQuery(function ($) {
         $('.loader .loader-logo .loader-name').fadeOut(400);
     };
 
-    // $(window).on('load', function () {
-    //     setTimeout(function () {
-    //         show_txt();
-    //     }, 1000)
-    //     setTimeout(function () {
-    //         hide_txt();
-    //     }, 3500)
-    //     setTimeout(function () {
-    //         end_loader();
-    //     }, 4500)
-    // });
 
     var flg = null;
     var check_access = function () {
@@ -151,13 +139,73 @@ jQuery(function ($) {
     }
     
 
+    /* =================== */
+    /*     back-to-top     */
+    /* =================== */
+    $(window).scroll(function () {
+        const windowHeight = $(window).height();
+        const scrollValue = $(window).scrollTop();
+        if (windowHeight < scrollValue) {
+            $('#btt').addClass('is-active');
+        } else {
+            $('#btt').removeClass('is-active');
+        }
+    });
 
+    $('#btt').click(function () {
+        $('html,body').animate({
+            scrollTop: 0
+        }, 700);
+    });
 
+/* =================== */
+/*       parallax      */
+/* =================== */
 
+// $(window).scroll(function () {
+//     const scrollValue = -$(this).scrollTop() / 60;
+//     $('.js-parallax').css('transform', `translateY(${scrollValue}%)`);
+// });
+
+    
+    $(window).scroll(function() {
+        const $winHeight = $(window).height(); // ウィンドウ画面の高さを取得
+        $(".contents, .content").each(function() {
+            const $scrollTop = $(window).scrollTop(); // スクロールした現在のtopの位置を取得
+            const $scrollBottom = $scrollTop + $winHeight; // スクロールした現在のtopの位置にウィンドウ画面の高さを加算してbottomの位置を算出
+            const $offsetTop = $(this).offset().top; // コンテンツの位置を取得
+            console.log(this);
+            if ( $scrollBottom > $offsetTop) { // ふんわり表示させたいコンテンツにスクロールが及べば表示する
+            $(this).addClass("visible");
+            }
+        });
+   });
+    $(window).scroll(); // 中途半端な位置でリロードされたときも、ふんわり表示する
+    
 
 });
+    
 
 
 
 
 
+/* =================== */
+/*    cursor-design    */
+/* =================== */
+    
+var cursor = document.getElementById('cursor');
+
+document.addEventListener('mousemove', function (e) {
+    cursor.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+});
+
+var link = document.querySelectorAll('a');
+for (var i = 0; i < link.length; i++) {
+    link[i].addEventListener('mouseover', function (e) {
+        cursor.classList.add('cursor--hover');
+    });
+    link[i].addEventListener('mouseout', function (e) {
+        cursor.classList.remove('cursor--hover');
+    });
+}

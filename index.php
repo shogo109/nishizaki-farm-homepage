@@ -22,28 +22,30 @@
         <div class="mv-scrolldown"><span>Scroll</span></div>
     </div>
 
-
+<section class="contents">
 <!-- プロローグ -->
-    <section class="section section-prologue" id="section-prologue">
-        <div class="section-prologue-inner">
-            <h2 class="section-prologue-ttl">西崎農園へようこそ</h2>
-            <h3 class="section-prologue-subttl">Welcome to</h3>
-            <p class="section-prologue-txt">
-                岡山のぶどう農園【西崎農園】<br>
-                古都からお送りする桃太郎ぶどう・ピオーネ・シャインマスカット・紫苑など人気の品種が勢ぞろい。<br>
-                糖度の高い種無しぶどうは皮ごとパリッと食べられます。<br>
-                大粒の肉厚な実と果汁が口の中いっぱいに溢れます。
-            </p>
-            <div class="section-prologue-button"><a href="<?php echo home_url('/prologue') ?>" ontouchstart="">View more</a></div>
-        </div>
-    </section>
+    
+        <section class="section section-prologue content" id="section-prologue">
+            <div class="section-prologue-inner">
+                <h2 class="section-prologue-ttl content">西崎農園へようこそ</h2>
+                <h3 class="section-prologue-subttl">Welcome to</h3>
+                <p class="section-prologue-txt content">
+                    岡山のぶどう農園【西崎農園】<br>
+                    古都からお送りする桃太郎ぶどう・ピオーネ・シャインマスカット・紫苑など人気の品種が勢ぞろい。<br>
+                    糖度の高い種無しぶどうは皮ごとパリッと食べられます。<br>
+                    大粒の肉厚な実と果汁が口の中いっぱいに溢れます。
+                </p>
+                <div class="section-prologue-button content"><a href="<?php echo home_url('/prologue') ?>" ontouchstart="">View more</a></div>
+            </div>
+        </section>
+    
 
 
 <!-- こだわり -->
     <section class="section section-goods" id="section-goods">
         <div class="section-inner">
-            <h2 class="section-ttl section-goods-ttl">こだわり</h2>
-            <p class="section-txt section-goods-txt">
+            <h2 class="section-ttl section-goods-ttl content">こだわり</h2>
+            <p class="section-txt section-goods-txt content">
                 岡山市は年間の降水量が日本一少なく、<br>
                 日照時間が他の県に比べて多いため「晴れの国」と呼ばれています。<br>
                 岡山の中でも古都というところは、昔からぶどうの産地で、<br>
@@ -85,7 +87,7 @@
                     </div>
                 </div> 
             </div>
-            <a href="https://nishizaki.base.ec/"><p class="section-button section-goods-button">オンラインショップへ→</p></a>
+            <p class="section-button section-goods-button"><a href="https://nishizaki.base.ec/">オンラインショップへ→</a></p>
         </div>
     </section>
 
@@ -94,9 +96,9 @@
 <!-- 農園の様子 -->
     <section class="section section-information" id="section-information">
         <div class="section-inner">
-            <h2 class="section-ttl section-information-ttl">農園の様子</h2>
+            <h2 class="section-ttl section-information-ttl content">農園の様子</h2>
             <div class="section-information-box">
-                <a href="<?php echo get_post_type_archive_link('gallery'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/infomation-box-bg.JPG" alt="西崎農園の様子" class="section-information-box-img"></a>
+                <a href="<?php echo get_post_type_archive_link('gallery'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/infomation-box-bg.JPG" alt="西崎農園の様子"></a>
                 <p class="section-information-box-ttl">西崎農園　フォトギャラリー</p>
                 <p class="section-information-box-date">2022/5/4</p>
             </div>
@@ -107,7 +109,7 @@
                             the_post();
                 ?>
 
-                <div class="section-information-news-item">
+                <div class="section-information-news-item content">
                     <h2 class="section-information-news-item-ttl"><?php the_title(); ?></h2>
                     <p class="section-information-news-item-date"><?php the_time('Y/m/d'); ?></p>
                     <div class="section-information-news-item-txt"><?php the_content(); ?></div>
@@ -136,5 +138,6 @@
         </div>
     </section>
 
+</section>
 
     <?php get_footer(); ?>

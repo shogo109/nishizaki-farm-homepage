@@ -8,7 +8,36 @@ $pc-txt: 15px;
 $txt-family: 'Noto Serif JP', serif;
 $eg-family: 'Tai Heritage Pro', serif;
 
-// commonのスタイル
+/* ===== カーソルデザイン ===== */
+html,
+body,
+a {
+    cursor: none;
+}
+
+.cursor {
+    position: fixed;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #41590C;
+    z-index: 999;
+    transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+    transform: translate(0, 0);
+    pointer-events: none; 
+}
+.cursor.cursor--hover {
+        top: -20px;
+        left: -20px;
+        width: 40px;
+        height: 40px;
+        background-color: #B0D91E;
+        opacity: 0.4;
+    }
+
+/* ===== commonのスタイル ===== */
 body {
     // max-width: 520px;
     color: #41590C;
@@ -43,9 +72,6 @@ body {
 }
 
 @media screen and (min-width: 520px) {
-    // body {
-    //     max-width: 1500px;
-    // }
     .section {
         padding: 40px 0;
         &-ttl {
@@ -77,7 +103,7 @@ body {
 }
 
 
-// headerのスタイル
+/* ===== headerのスタイル =====*/
 .header {
     display: flex;
     justify-content: center;
@@ -101,6 +127,25 @@ body {
         font-family: $txt-family;
         letter-spacing: 0.07em;
     }
+    &-ttl {
+        &-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 40px;
+        }
+        &-icon {
+            height: 80px;
+            width: 80px;
+            & img:first-of-type {
+                height: 100%;
+                width: 110px;
+            }
+            & img:nth-of-type(2) {
+                display: none;
+            }
+        }
+    }
     &-ttl a {
         & span {
             display: block;
@@ -112,6 +157,7 @@ body {
                 font-size: 3vw;
                 font-family: 'Handlee', cursive;
                 color: $main-backcolor;
+                margin-left: 4px;
             }
         }
         
@@ -171,6 +217,20 @@ body {
                 display: none;
             }
         }
+        &-ttl {
+            &-icon {
+                height: 140px;
+                width: 140px;
+                & img:first-of-type {
+                    display: none;
+                }
+                & img:nth-of-type(2) {
+                    display: block;
+                    width: 170px;
+                    height: 100%;
+                }
+            }
+        }
         &-ttl a {
             & span {
                 &:first-child {
@@ -202,7 +262,7 @@ body {
 }
 
 
-// ナビゲーション画面のスタイル
+/* ===== ナビゲーション画面のスタイル ===== */
 body.is-active {
     overflow: hidden;
 }
@@ -233,7 +293,7 @@ body.is-active {
 
 
 
-// mvのスタイル
+/* ===== mvのスタイル =====*/
 .slick-list {
     height: 100%;
 }
@@ -242,7 +302,7 @@ body.is-active {
 }
 .mv {
     position: relative;
-    height: calc(100vh - 82.5px);
+    height: calc(100vh - 120px);
     &-slide {
         height: 100%;
     }
@@ -365,7 +425,12 @@ body.is-active {
 }
 
 
-// --mvキャッチフレーズのアニメーション--
+
+
+
+
+
+/* --- mvキャッチフレーズのアニメーション --- */
 :root {
     --delay: 0;
     --duration:800ms;
@@ -386,7 +451,6 @@ body.is-active {
     position: relative;
     animation-name: clip-text;
     white-space: nowrap;
-    cursor: default;
   
   &::after {
     content: "";
@@ -509,7 +573,7 @@ body.is-active {
          
 }
 
-// プロローグのスタイル
+/* ===== プロローグのスタイル =====*/
 .section-prologue {
     background: url(../img/prologue-bg-sp.jpg) center / cover;
     &-inner {
@@ -572,6 +636,19 @@ body.is-active {
     }
 }
 
+// parallax
+.contents,
+.content {
+ opacity: 0;
+ transform: translate(0, 100px);
+ transition: all 1.5s;
+}
+.contents.visible,
+.content.visible {
+ opacity: 1;
+ transform: translate(0, 0);
+}
+
 
 @media screen and (min-width: 520px) {
     .section-prologue {
@@ -631,7 +708,7 @@ body.is-active {
     }
 }
 
-// こだわりのスタイル
+/* ===== こだわりのスタイル =====*/
 .section-goods {
     position: relative;
     &-ttl {
@@ -865,7 +942,7 @@ body.is-active {
     }
 }
 
-// 農園の様子
+/* ===== 農園の様子 =====*/
 .section-information {
     &-ttl {
         margin-top: 12px;
@@ -1024,7 +1101,7 @@ body.is-active {
     }
 }
 
-// googlemapのスタイル
+/* ===== googlemapのスタイル =====*/
 .section-map {
     width: 100%;
     overflow: hidden;
@@ -1065,7 +1142,7 @@ body.is-active {
         }
     }
 }
-// フッターのスタイル
+/* ===== フッターのスタイル =====*/
 .footer {
     padding: 12px 0;
     &-ttl {
@@ -1284,7 +1361,7 @@ body.is-active {
 
 
 
-// お問い合わせのスタイル
+/* ===== お問い合わせのスタイル =====*/
 .section-form-ttl {
     text-align: center;
     margin-top: 12px;
@@ -1363,7 +1440,7 @@ body.is-active {
 
 
 
-// ローディングアニメーション
+/* ===== ローディングアニメーション =====*/
 
 .loader {
     position: fixed;
@@ -1473,3 +1550,36 @@ body.is-active {
             bottom: 15%;
         }
     }
+
+/* ===== back-to-top ===== */
+.btt {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #41590C;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: -100px;
+    z-index: 100;
+    opacity: 0.3;
+    transition: 0.4s;
+    &:hover {
+        opacity: 0.7s;
+        transition: 0.3s;
+    }
+    &::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-top: 1px solid #fff;
+        border-right: 1px solid #fff;
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 20px;
+        left: 15px;
+    }
+    &.is-active {
+        right: 20px;
+    }
+}

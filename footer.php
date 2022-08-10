@@ -8,7 +8,7 @@
                         <a href="index.html">NishizakiFarm</a>
                     </h1>
                     <div class="footer-address-box">
-                        <p class="footer-address-item"><a href="#section-map"><img src="<?php echo get_template_directory_uri(); ?>/img/location-dot-solid-green.svg" alt="位置情報のアイコン"></a></p>
+                        <p class="footer-address-item"><a href="<?php echo home_url('/#section-map'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/location-dot-solid-green.svg" alt="位置情報のアイコン"></a></p>
                         <p class="footer-potalcode">〒703-8213</p>
                         <p class="footer-address">岡山県岡山市東区藤井65</p>
                     </div>

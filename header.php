@@ -15,6 +15,8 @@
     <?php wp_head(); ?>
 </head>
 <body>
+
+<!-- ローディングアニメーション -->
 <?php if ( is_home() || is_front_page() ) : ?>
     <div class="loader">
         <div id="loader-logo">
@@ -85,6 +87,15 @@
         </div>
     </div>
 <?php endif; ?>
+<!-- /ローディングアニメーション -->
+
+<!-- カーソルデザイン -->
+<div class="cursor" id="cursor"></div>
+<!-- /カーソルデザイン -->
+
+<!-- back-to-top -->
+<div class="btt" id="btt"></div>
+<!-- /back-to-top -->
 
     <header class="header" id="header">
         <div class="header-icon">
@@ -94,8 +105,17 @@
         </div>
         <h1 class="header-ttl">
             <a href="<?php echo home_url('/'); ?>">
-                <span>西崎農園</span>
-                <span>NishizakiFarm</span>
+                <div class="header-ttl-flex">
+                    <div class="header-ttl-icon">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/nishizakifarm-spicon.png" alt="西崎農園spのアイコン">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/nishizakifarm-pcicon.png" alt="西崎農園pcのアイコン">
+                    </div>
+                    <div class="header-ttl-content">
+                        <span>西崎農園</span>
+                        <span>NishizakiFarm</span>
+                    </div>   
+                </div>
+                
             </a>
         </h1>
 

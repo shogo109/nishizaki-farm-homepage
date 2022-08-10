@@ -10,7 +10,6 @@ jQuery(function ($) {
             var scroll = $(window).scrollTop();
             var windowHeight = $(window).height();
             var startPoint = 100;
-            console.log(scroll);
             if (scroll >= elemPos - windowHeight-startPoint){ 
                 var H = $(this).outerHeight(true)
                 var percent = (scroll+startPoint - elemPos) / (H/2) *100;
@@ -19,7 +18,7 @@ jQuery(function ($) {
                     percent  = 100;
                 }
 
-                $(this).children('.border-line').css({
+                $(this).find('.border-line').css({
                     height: percent + "%",
                 });
             }
@@ -51,4 +50,3 @@ jQuery(function ($) {
 
 
 });
-
